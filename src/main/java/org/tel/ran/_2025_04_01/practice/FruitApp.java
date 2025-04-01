@@ -25,25 +25,26 @@ public class FruitApp {
                 """);
 
         List<Predicate<Fruit>> predicates = new ArrayList<>();
-        int answer = scanner.nextInt();
-        while (answer != 0) {
+        int answer = scanner.nextInt(); // сканируем ответ с клавиатуры и добавляем придикаты(условия фильтрации) в соотвествии с выбором
+        while (answer != 0) { // выход из цикла - окончание ввода придикатов - 0
             switch (answer) {
                 case 1 -> predicates.add(Fruit::isInStock);
                 case 2 -> predicates.add(f -> f.getPrice() > 2);
                 case 3 -> predicates.add(f -> f.getName().charAt(f.getName().length() - 1) == 'e');
                 case 4 -> predicates.add(f -> f.getName().length() > 5);
             }
-
             answer = scanner.nextInt();
         }
 
-        System.out.println(filter(fruits, getPredicate(predicates)));
+        System.out.println(filter(fruits, getPredicate(predicates))); // вывод результатов фильтрации с выбраными предикатами(условиями)
     }
 
+    // метод для фильтрации списка фруктов
     public static List<Fruit> filter(List<Fruit> fruits, Predicate<Fruit> fruitPredicate) {
         return fruits.stream().filter(fruitPredicate).toList();
     }
 
+    // метод для создания предиката(условия) фильтрации
     public static Predicate<Fruit> getPredicate(List<Predicate<Fruit>> predicates) {
         if (predicates == null || predicates.isEmpty()) {
             throw new IllegalArgumentException("No predicates in the list.");
