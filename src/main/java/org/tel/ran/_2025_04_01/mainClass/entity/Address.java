@@ -1,4 +1,4 @@
-package org.tel.ran._2025_04_01.MainClass.Entity;
+package org.tel.ran._2025_04_01.mainClass.entity;
 
 public class Address {
     private String street;

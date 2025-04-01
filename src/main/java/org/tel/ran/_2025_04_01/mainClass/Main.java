@@ -1,4 +1,7 @@
-package org.tel.ran._2025_04_01.MainClass.Entity;
+package org.tel.ran._2025_04_01.mainClass;
+
+import org.tel.ran._2025_04_01.mainClass.entity.Address;
+import org.tel.ran._2025_04_01.mainClass.entity.Person;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.tel.ran.practice;
+package org.tel.ran._2025_04_01.practice;
 
 public class Fruit {
     private double price;
