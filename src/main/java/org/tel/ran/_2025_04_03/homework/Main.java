@@ -57,6 +57,4 @@ public class Main {
         // Найдите самое длинное слово, используя Stream API.
         List<String> task10 = List.of("elephant", "cat", "butterfly", "dog", "dolphin");
     }
-
-    public static
 }
