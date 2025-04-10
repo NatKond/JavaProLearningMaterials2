@@ -26,7 +26,8 @@ public class PrintStreamExample {
         System.out.println(sb);
 
         String pathOut = "files/testPractice2.txt";
-        String example = "Hold fast to dreams\n" +
+        String example =
+                "Hold fast to dreams\n" +
                 "For when dreams go\n" +
                 "Life is a barren field\n" +
                 "Frozen with snow.";

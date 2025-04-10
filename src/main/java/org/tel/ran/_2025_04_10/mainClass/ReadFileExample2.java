@@ -18,12 +18,12 @@ public class ReadFileExample2 {
             String tmp = bufferedReader.readLine(); //Вкладываем строку во временную переменную
 
             while (!tmp.equals("{")) { //Читаем файл в цикле, пока не наткнемся на начало списка климатов
-                tmp = bufferedReader.readLine(); //Читаем список климатов и вкладываем каждую строчку в StringBuilder
+                tmp = bufferedReader.readLine();
             }
 
             tmp = bufferedReader.readLine();
-            while (!tmp.equals("}")) {
-                sb.append(tmp.replace("\t", "").trim());
+            while (!tmp.equals("}")) { //Читаем список климатов
+                sb.append(tmp.replace("\t", "").trim()); // Вкладываем каждую строчку в StringBuilder
                 sb.append("\n");
                 tmp = bufferedReader.readLine();
             }
@@ -43,6 +43,8 @@ public class ReadFileExample2 {
         //Задача 2: Прочитайте файл descr_climates.txt и извлеките из него список климатов с heat больше 3.
         // Поместите получившиеся климаты в отдельный файл hot_climates.txt
         List<String> hotClimates = new ArrayList<>();
+
+        //-------- Чтение файла ---------
         try (FileReader fileReader = new FileReader("files/descr_climates.txt")) { //Создаем поток ввода символов
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -67,7 +69,7 @@ public class ReadFileExample2 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        //-------- Запись файла ---------
         try (FileWriter fileWriter = new FileWriter("files/hot_climates.txt")) {
             BufferedWriter writer = new BufferedWriter(fileWriter);
             for (String s : hotClimates) {
