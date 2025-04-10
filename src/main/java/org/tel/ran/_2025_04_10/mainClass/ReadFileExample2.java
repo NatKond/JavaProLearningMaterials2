@@ -7,6 +7,9 @@ import java.util.List;
 public class ReadFileExample2 {
     public static void main(String[] args) {
 
+        // Задача 1: Прочитайте файл descr_climates.txt и извлеките из него список климатов,
+        // и запишите его в отдельный файл climates_list.txt
+
         StringBuilder sb = new StringBuilder(); //Объявляем StringBuilder для последовательного добавления строк
 
         //-------- Чтение файла ---------
@@ -37,8 +40,9 @@ public class ReadFileExample2 {
             throw new RuntimeException(e);
         }
 
+        //Задача 2: Прочитайте файл descr_climates.txt и извлеките из него список климатов с heat больше 3.
+        // Поместите получившиеся климаты в отдельный файл hot_climates.txt
         List<String> hotClimates = new ArrayList<>();
-
         try (FileReader fileReader = new FileReader("files/descr_climates.txt")) { //Создаем поток ввода символов
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
