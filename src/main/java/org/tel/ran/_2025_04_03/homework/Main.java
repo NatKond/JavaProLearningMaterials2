@@ -71,7 +71,6 @@ public class Main {
                 task7.stream()
                         .sorted(Comparator.reverseOrder())
                         .skip(1)
-                        .limit(1)
                         .findFirst()
                         .orElseThrow(() -> new IllegalArgumentException("No data"))
         );
@@ -104,7 +103,9 @@ public class Main {
         List<String> task10 = List.of("elephant", "cat", "butterfly", "dog", "dolphin");
         System.out.println(
                 task10.stream()
-                        .max(Comparator.comparingInt(String::length))
+                        //.max(Comparator.comparingInt(String::length))
+                        //.max((s1,s2) -> s1.length() - s2.length())
+                        .reduce((s1, s2) -> s1.length() > s2.length() ? s1 : s2)
                         .orElseThrow(() -> new IllegalArgumentException("No data"))
         );
     }

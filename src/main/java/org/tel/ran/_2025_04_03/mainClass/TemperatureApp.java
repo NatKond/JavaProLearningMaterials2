@@ -71,7 +71,11 @@ public class TemperatureApp {
                         ));
 
         return resultMap.entrySet().stream()
-                .filter(entry -> entry.getValue().stream().mapToInt(Integer::intValue).average().orElse(0) > 0)
+                .filter(entry -> entry.getValue().stream()
+                        .mapToInt(Integer::intValue)
+                        .average()
+                        .orElseThrow(() -> new IllegalArgumentException("No data"))
+                        > 0)
                 .limit(3)
                 .map(entry -> Map.of(entry.getKey(), entry.getValue()))
                 .toList();

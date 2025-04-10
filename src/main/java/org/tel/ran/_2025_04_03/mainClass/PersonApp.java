@@ -47,6 +47,7 @@ public class PersonApp {
         // Верните имя сотрудника с самой высокой заплатой среди всех компаний
         String name = enterprise.stream()
                 .flatMap(Collection::stream)
+                //.flatMap(list -> list.stream())
                 .max(Comparator.comparingInt(Person::getSalary))
                 .orElseThrow().getName();
         System.out.println(name);
