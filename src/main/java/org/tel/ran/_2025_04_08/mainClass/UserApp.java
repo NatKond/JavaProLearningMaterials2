@@ -26,12 +26,12 @@ public class UserApp {
                 .collect(Collectors.groupingBy(user -> (user.getPassportNumber() / 1000) * 1000));
         for (Map.Entry<Integer, List<User>> entry : userSeriesMap.entrySet()) {
             ObjectOutputStream userOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("files/users" + entry.getKey() + "-" + (entry.getKey() + 999))
+                    new FileOutputStream("files/users/users" + entry.getKey() + "-" + (entry.getKey() + 999))
             );
             userOutputStream.writeObject(entry.getValue());
         }
 
-        ObjectInputStream usersInputStream = new ObjectInputStream(new FileInputStream("files/users1000-1999"));
+        ObjectInputStream usersInputStream = new ObjectInputStream(new FileInputStream("files/users/users1000-1999"));
         List<User> users1000 = (List<User>) usersInputStream.readObject();
         System.out.println(users1000);
     }

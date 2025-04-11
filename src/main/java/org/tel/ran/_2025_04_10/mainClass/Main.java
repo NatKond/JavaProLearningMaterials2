@@ -36,8 +36,7 @@ public class Main {
         }
 
         //Использование байтового потока
-
-        try ( FileInputStream inputStream2 = new FileInputStream("file/somefile")) {
+        try (FileInputStream inputStream2 = new FileInputStream("file/somefile")) {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream2);
             byte[] arr = new byte[bufferedInputStream.available()];
             while (bufferedInputStream.read(arr) != -1) {
