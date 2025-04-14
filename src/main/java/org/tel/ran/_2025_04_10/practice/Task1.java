@@ -1,5 +1,6 @@
 package org.tel.ran._2025_04_10.practice;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
@@ -18,12 +19,13 @@ public class Task1 {
             System.out.println(1/i);
         } catch (Exception error) {
             try (FileWriter fileWriter = new FileWriter(path,true)){
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 StringBuilder log = new StringBuilder();
                 for (StackTraceElement stackTraceElement : error.getStackTrace()) {
                     log.append(stackTraceElement).append("\n");
                 }
                 log.append(new Date()).append("\n\n");
-                fileWriter.write(log.toString());
+                bufferedWriter.write(log.toString());
             } catch(IOException _){
                 throw new RuntimeException();
             }

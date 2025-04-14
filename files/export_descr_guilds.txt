@@ -1,0 +1,1794 @@
+;This file is generated from the Spreadsheet MTW2-Guilds.xls
+;Please modify the spreadsheet and re-xport the data, rather than editing this file directly
+
+
+
+;------------------------------------------
+Guild masons_guild
+    building guild_masons_guild
+    levels  75 200 400
+
+;------------------------------------------
+Guild theologians_guild
+    building guild_theologians_guild
+    levels  100 250 500
+
+;------------------------------------------
+Guild merchants_guild
+    building guild_merchants_guild
+    levels  80 200 400
+
+;------------------------------------------
+Guild explorers_guild
+    building guild_explorers_guild
+    levels  125 250 500
+
+;------------------------------------------
+Guild swordsmiths_guild
+    building guild_swordsmiths_guild
+    levels  50 125 250
+
+;------------------------------------------
+Guild woodsmens_guild
+    building guild_woodsmens_guild
+    levels  100 250 500
+
+;------------------------------------------
+Guild horse_breeders_guild
+    building guild_horse_breeders_guild
+    levels  100 250 500
+
+
+;------------------------------------------
+Trigger 0001_Guild_Upgraded
+    WhenToTest GuildUpgraded
+
+
+    Guild this s  20 
+    Guild this o  10 
+
+;------------------------------------------
+Trigger 0002_Guild_Destroyed
+    WhenToTest GuildDestroyed
+
+
+    Guild this s -1000 
+    Guild this o -200 
+
+;------------------------------------------
+Trigger 0003_Settlement_Upgraded
+    WhenToTest SettlementUpgraded
+
+
+    Guild all s  10 
+
+;------------------------------------------
+Trigger 0004_Normalise
+    WhenToTest SettlementTurnStart
+
+    Condition I_TurnNumber > 25
+
+    Guild all s -1 
+
+
+Trigger 0005
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = wooden_pallisade
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+
+;------------------------------------------
+Trigger 0006
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = wooden_wall
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0007
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stone_wall
+
+    Guild masons_guild s  50 
+    Guild masons_guild o  5 
+
+;------------------------------------------
+Trigger 0008
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = large_stone_wall
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0009
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = huge_stone_wall
+
+    Guild masons_guild s  70 
+    Guild masons_guild o  7 
+
+;------------------------------------------
+Trigger 0010
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = motte_and_bailey
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+
+;------------------------------------------
+Trigger 0011
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = wooden_castle
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0012
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = castle
+
+    Guild masons_guild s  50 
+    Guild masons_guild o  5 
+
+;------------------------------------------
+Trigger 0013
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = fortress
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0014
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = citadel
+
+    Guild masons_guild s  70 
+    Guild masons_guild o  7 
+
+
+;------------------------------------------
+Trigger 0015
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = port
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+    Guild merchants_guild s  20 
+    Guild merchants_guild o  2 
+
+;------------------------------------------
+Trigger 0016
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = shipwright
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+    Guild merchants_guild s  40 
+    Guild merchants_guild o  4 
+;------------------------------------------
+Trigger 0017
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = dockyard
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+    Guild merchants_guild s  60 
+    Guild merchants_guild o  6 
+
+;------------------------------------------
+Trigger 0018
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = naval_drydock
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+    Guild merchants_guild s  80 
+    Guild merchants_guild o  8 
+
+;------------------------------------------
+Trigger 0019
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = c_port
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0020
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = c_shipwright
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+;------------------------------------------
+Trigger 0021
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = roads
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+;------------------------------------------
+Trigger 0022
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = paved_roads
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+;------------------------------------------
+Trigger 0023
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = highways
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0024
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0025
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+1
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+;------------------------------------------
+Trigger 0026
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+2
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+
+;------------------------------------------
+Trigger 0027
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+3
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0028
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+4
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+;------------------------------------------
+Trigger 0029
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = mines 
+
+    Guild woodsmens_guild s  80 
+    Guild woodsmens_guild o  8 
+
+;------------------------------------------
+Trigger 0030
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = mines+1 
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0031
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = weapon_smith_1
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0032
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = workshop_of_bows_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+;------------------------------------------
+Trigger 0033
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = workshop_of_bows_1
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+
+;------------------------------------------
+Trigger 0035
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = fishing_settlement_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+
+;------------------------------------------
+Trigger 0037
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = workshop_of_jeweller_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+    Guild merchants_guild s  40 
+    Guild merchants_guild o  4 
+
+;------------------------------------------
+Trigger 0038
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = sawmill_1
+
+    Guild woodsmens_guild s  70 
+    Guild woodsmens_guild o  7 
+
+
+;------------------------------------------
+Trigger 0039
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_hunters_1
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+
+;------------------------------------------
+Trigger 0040
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = textile_workshop_1 
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+    Guild merchants_guild s  40 
+    Guild merchants_guild o  4 
+
+;------------------------------------------
+Trigger 0041
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = sawmill_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+    Guild merchants_guild s  40 
+    Guild merchants_guild o  4 
+
+
+;------------------------------------------
+Trigger 0042
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = foundry_1
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+
+;------------------------------------------
+Trigger 0043
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = foundry_1
+
+    Guild masons_guild s  100 
+    Guild masons_guild o  10 
+
+
+;------------------------------------------
+Trigger 0044
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = windmill_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+
+;------------------------------------------
+Trigger 0045
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = watermill_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+
+;------------------------------------------
+Trigger 0046
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = mint_1
+
+    Guild woodsmens_guild s  70 
+    Guild woodsmens_guild o  7 
+    Guild merchants_guild s  40 
+    Guild merchants_guild o  4 
+
+
+;------------------------------------------
+Trigger 0047
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = marble_workshop_1 
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+
+;------------------------------------------
+Trigger 0048
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = smith_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0049
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = smith_2
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+;------------------------------------------
+Trigger 0050
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = smith_3
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+
+;------------------------------------------
+Trigger 0051
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = smith_4
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+
+;------------------------------------------
+Trigger 0052
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = smith_5
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+
+;------------------------------------------
+Trigger 0053
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = smith_6
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0054
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+    Guild swordsmiths_guild s  20 
+    Guild swordsmiths_guild o  2 
+
+;------------------------------------------
+Trigger 0055
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_2
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+    Guild swordsmiths_guild s  20 
+    Guild swordsmiths_guild o  4 
+
+;------------------------------------------
+Trigger 0056
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_3
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+    Guild swordsmiths_guild s  20 
+    Guild swordsmiths_guild o  6 
+
+;------------------------------------------
+Trigger 0057
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_4
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+    Guild swordsmiths_guild s  20 
+    Guild swordsmiths_guild o  8 
+
+;------------------------------------------
+Trigger 0058
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_5
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+    Guild swordsmiths_guild s  20
+    Guild swordsmiths_guild o  10 
+
+;------------------------------------------
+Trigger 0059
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_of_marksmen_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+    Guild swordsmiths_guild s  20 
+    Guild swordsmiths_guild o  2 
+
+
+;------------------------------------------
+Trigger 0060
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_of_marksmen_2
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+    Guild swordsmiths_guild s  20
+    Guild swordsmiths_guild o  4 
+
+
+;------------------------------------------
+Trigger 0061
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = barracks_of_marksmen_3
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+    Guild swordsmiths_guild s  20 
+    Guild swordsmiths_guild o  6 
+
+
+;------------------------------------------
+Trigger 0062
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = cannon_arsenal_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0063
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = cannon_arsenal_2
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+
+;------------------------------------------
+Trigger 0064
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = cannon_arsenal_3
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0065
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = cannon_arsenal_4
+
+    Guild masons_guild s  90 
+    Guild masons_guild o  9 
+
+;------------------------------------------
+Trigger 0066
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_1
+
+    Guild woodsmens_guild s  80 
+    Guild woodsmens_guild o  8 
+    Guild horse_breeders_guild s  20 
+
+
+
+;------------------------------------------
+Trigger 0067
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_2
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+    Guild horse_breeders_guild s  20 
+
+
+;------------------------------------------
+Trigger 0068
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_3
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+    Guild horse_breeders_guild s  20 
+
+
+;------------------------------------------
+Trigger 0069
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_4
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+    Guild horse_breeders_guild s  20 
+
+;------------------------------------------
+Trigger 0070
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_5
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+    Guild horse_breeders_guild s  20 
+
+;------------------------------------------
+Trigger 0073
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = market_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+    Guild merchants_guild s  20 
+    Guild merchants_guild o  2 
+
+;------------------------------------------
+Trigger 0074
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = market_2
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+    Guild merchants_guild s  40 
+    Guild merchants_guild o  4 
+
+;------------------------------------------
+Trigger 0075
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = market_3
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+    Guild merchants_guild s  60 
+    Guild merchants_guild o  6 
+
+;------------------------------------------
+Trigger 0076
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = market_4
+
+    Guild woodsmens_guild s  80 
+    Guild woodsmens_guild o  8 
+    Guild merchants_guild s  80 
+    Guild merchants_guild o  8 
+
+;------------------------------------------
+Trigger 0077
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = market_5
+
+    Guild woodsmens_guild s  100 
+    Guild woodsmens_guild o  10 
+    Guild merchants_guild s  100 
+    Guild merchants_guild o  10 
+
+;------------------------------------------
+Trigger 0078
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = alchemists_lab
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+
+;------------------------------------------
+Trigger 0079
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = alchemy_school
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+
+;------------------------------------------
+Trigger 0080
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = university 
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+
+;------------------------------------------
+;Trigger 0081
+;    WhenToTest BuildingCompleted
+;
+;    Condition SettlementBuildingFinished = stables_5
+;
+;   Guild masons_guild s  100 
+;    Guild masons_guild o  10 
+;
+;------------------------------------------
+Trigger 0082
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = brothel
+
+    Guild masons_guild s  70 
+    Guild masons_guild o  7 
+
+;------------------------------------------
+Trigger 0083
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = inn
+
+    Guild masons_guild s  30 
+    Guild masons_guild o  30 
+
+;------------------------------------------
+Trigger 0084
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = tavern
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0085
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = coaching_house
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5 
+
+;------------------------------------------
+Trigger 0086
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = pleasure_palace
+
+    Guild woodsmens_guild s  80 
+    Guild woodsmens_guild o  8 
+
+;------------------------------------------
+Trigger 0087
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = city_hall_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6
+
+;------------------------------------------
+Trigger 0088
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = city_hall_2
+
+    Guild woodsmens_guild s  10 
+    Guild woodsmens_guild o  1 
+
+
+;------------------------------------------
+Trigger 0089
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = city_hall_3
+
+    Guild woodsmens_guild s  30 
+    Guild woodsmens_guild o  3 
+
+
+;------------------------------------------
+Trigger 0090
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = city_hall_4
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0092
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = merchant_bank
+
+    Guild woodsmens_guild s  120 
+    Guild woodsmens_guild o  12 
+    Guild merchants_guild s  40 
+
+;------------------------------------------
+Trigger 0093
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = merchant_vault
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  40 
+    Guild merchants_guild s  80 
+
+;------------------------------------------
+Trigger 0094
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = printing_house_1
+
+    Guild woodsmens_guild s  80 
+    Guild woodsmens_guild o  8 
+
+;------------------------------------------
+Trigger 0095
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = printing_house_2
+
+    Guild woodsmens_guild s  120 
+    Guild woodsmens_guild o  12 
+
+;------------------------------------------
+Trigger 0096
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = jousting_lists
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+    Guild horse_breeders_guild s  20 
+
+;------------------------------------------
+Trigger 0097
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = tourney_fields 
+
+    Guild woodsmens_guild s  80 
+    Guild woodsmens_guild o  8 
+    Guild horse_breeders_guild s  20 
+
+;------------------------------------------
+Trigger 0101
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_3
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+
+
+;------------------------------------------
+Trigger 0102
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_4
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+
+;------------------------------------------
+Trigger 0103
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_5
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+;------------------------------------------
+Trigger 0104
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_3
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+
+
+;------------------------------------------
+Trigger 0105
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_4
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+
+;------------------------------------------
+Trigger 0106
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_5
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+;------------------------------------------
+Trigger 0107
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_3
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+
+
+;------------------------------------------
+Trigger 0108
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_4
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+
+;------------------------------------------
+Trigger 0109
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_5
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+;------------------------------------------
+Trigger 0110
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_3
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+
+
+;------------------------------------------
+Trigger 0111
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_4
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+
+;------------------------------------------
+Trigger 0112
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = stables_5
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+;------------------------------------------
+Trigger 0113
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_sigmar_1
+
+    Guild masons_guild s  50 
+    Guild masons_guild o  5 
+
+
+;------------------------------------------
+Trigger 0114
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_sigmar_2
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+;------------------------------------------
+Trigger 0115
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_sigmar_3
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+
+;------------------------------------------
+Trigger 0116
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_sigmar_4
+
+    Guild masons_guild s  50 
+    Guild masons_guild o  5 
+
+
+;------------------------------------------
+Trigger 0117
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_sigmar_5
+
+    Guild masons_guild s  120 
+    Guild masons_guild o  12 
+
+;------------------------------------------
+Trigger 0118
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = altar_daemons_1
+
+    Guild masons_guild s  0
+
+;------------------------------------------
+Trigger 0119
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = altar_daemons_2
+
+    Guild masons_guild s  0 
+
+;------------------------------------------
+Trigger 0120
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = altar_daemons_3
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0121
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = chaos_barracks_1
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0122
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = chaos_barracks_2
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0123
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = chaos_barracks_3
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0124
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = chaos_barracks_4
+
+    Guild masons_guild s  0 
+ 
+
+;------------------------------------------
+Trigger 0129
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = chaos_cannon_1
+
+    Guild masons_guild s  0 
+
+;------------------------------------------
+Trigger 0130
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = chaos_cannon_2
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0131
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = sacrificial_altar_1
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0132
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = sacrificial_altar_2
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0133
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = leader_hall_1
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0134
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = leader_hall_2
+
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0135
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = mark_khorne_1
+
+    Guild masons_guild s  0 
+
+;------------------------------------------
+Trigger 0136
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = mark_nurgl_1
+
+    Guild masons_guild s  0 
+
+
+
+;------------------------------------------
+Trigger 0141
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_1_chaos
+
+    Guild masons_guild s  0 
+
+
+;------------------------------------------
+Trigger 0142
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_2_chaos
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0143
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_3_chaos
+
+    Guild masons_guild s  0 
+
+
+
+
+;------------------------------------------
+
+Trigger 0179
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_inventors_1
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+;------------------------------------------
+Trigger 0180
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_inventors_2
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+
+;------------------------------------------
+Trigger 0181
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_inventors_3
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+
+;------------------------------------------
+Trigger 0182
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_merchants_1
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+ 
+;------------------------------------------
+Trigger 0183
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_merchants_2
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0184
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_merchants_3
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+ 
+;------------------------------------------
+Trigger 0185
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_merchants_4
+
+    Guild masons_guild s  120 
+    Guild masons_guild o  12 
+
+;------------------------------------------
+Trigger 0186
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_merchants_5
+
+    Guild masons_guild s  140 
+    Guild masons_guild o  14 
+
+;------------------------------------------
+Trigger 0187
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_architects_1
+
+    Guild masons_guild s  30 
+    Guild masons_guild o  3 
+
+;------------------------------------------
+Trigger 0188
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = guild_of_architects_2
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0189
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = halls_of_elders_1
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4
+
+;------------------------------------------
+Trigger 0190
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = halls_of_elders_2
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0191
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = halls_of_grudge_1
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4 
+
+;------------------------------------------
+Trigger 0192
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = halls_of_grudge_2
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+ 
+;------------------------------------------
+Trigger 0193
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+1
+
+    Guild masons_guild s  0 
+
+;------------------------------------------
+Trigger 0194
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+2
+
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0195
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = farms+3
+
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0196
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = dwarven_tavern_1
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4
+
+
+;------------------------------------------
+Trigger 0197
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = dwarven_tavern_2
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+
+;------------------------------------------
+Trigger 0198
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = dwarven_tavern_3
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+;------------------------------------------
+Trigger 0199
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = water_drain_1
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6
+
+
+;------------------------------------------
+Trigger 0200
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = water_drain_1
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+
+;------------------------------------------
+Trigger 0201
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = water_drain_1
+
+    Guild masons_guild s  100 
+    Guild masons_guild o  10 
+
+;------------------------------------------
+
+Trigger 0202
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_dwarven_1
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+ 
+;------------------------------------------
+Trigger 0203
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_dwarven_2
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4
+
+;------------------------------------------
+Trigger 0204
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_dwarven_3
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+ 
+;------------------------------------------
+Trigger 0205
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_dwarven_4
+
+    Guild masons_guild s  80 
+    Guild masons_guild o  8 
+
+;------------------------------------------
+Trigger 0206
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = orcz_missiles_1
+
+    Guild masons_guild s  0 
+    Guild swordsmiths_guild s  20 
+
+;------------------------------------------
+Trigger 0207
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = orcz_missiles_2
+
+    Guild masons_guild s  0 
+    Guild swordsmiths_guild s  20 
+
+
+;------------------------------------------
+Trigger 0210
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = orcz_stables_1
+
+    Guild masons_guild s  0 
+    Guild horse_breeders_guild s  20 
+
+
+;------------------------------------------
+Trigger 0211
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = orcz_stables_2
+
+    Guild masons_guild s  0 
+    Guild horse_breeders_guild s  20 
+
+
+;------------------------------------------
+Trigger 0212
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = dark_elven_slave_market_3
+
+    Guild masons_guild s  0 
+ 
+ 
+;------------------------------------------
+Trigger 0215
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = brew_mushroom_1
+
+    Guild masons_guild s  0 
+ 
+;------------------------------------------
+Trigger 0216
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = arena_of_old_orc_1
+
+    Guild masons_guild s  0 
+
+
+
+;------------------------------------------
+Trigger 0237
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = art_gallery_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0238
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = art_gallery_2
+
+    Guild woodsmens_guild s  120 
+    Guild woodsmens_guild o  12 
+;------------------------------------------
+Trigger 0239
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = tower_of_philosophy_1
+
+    Guild woodsmens_guild s  50 
+    Guild woodsmens_guild o  5
+
+
+;------------------------------------------
+Trigger 0240
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = tower_of_philosophy_2
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2 
+
+;------------------------------------------
+Trigger 0243
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = elven_temple_1
+
+    Guild woodsmens_guild s  20 
+    Guild woodsmens_guild o  2
+
+
+;------------------------------------------
+Trigger 0244
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = elven_temple_2
+
+    Guild woodsmens_guild s  40 
+    Guild woodsmens_guild o  4 
+
+;------------------------------------------
+Trigger 0245
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = elven_temple_3
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+
+;------------------------------------------
+Trigger 0257
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = art_gallery_1
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6 
+
+;------------------------------------------
+Trigger 0258
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = art_gallery_2
+
+    Guild woodsmens_guild s  120 
+    Guild woodsmens_guild o  12 
+;------------------------------------------
+Trigger 0259
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = ikoner_studio 
+
+    Guild woodsmens_guild s  60 
+    Guild woodsmens_guild o  6
+
+
+;------------------------------------------
+Trigger 0260
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = master_ikoner_studio 
+
+    Guild woodsmens_guild s  120 
+    Guild woodsmens_guild o  12 
+
+	
+;------------------------------------------
+Trigger 0263
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_ursun_1
+
+    Guild masons_guild s  50 
+    Guild masons_guild o  5
+
+
+;------------------------------------------
+Trigger 0264
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_ursun_2
+
+    Guild masons_guild s  20 
+    Guild masons_guild o  2 
+;------------------------------------------
+Trigger 0263
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_ursun_3
+
+    Guild masons_guild s  40 
+    Guild masons_guild o  4
+
+
+;------------------------------------------
+Trigger 0264
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_ursun_4
+
+    Guild masons_guild s  60 
+    Guild masons_guild o  6 
+;------------------------------------------
+Trigger 0263
+    WhenToTest BuildingCompleted
+
+    Condition SettlementBuildingFinished = temple_ursun_5
+
+    Guild masons_guild s  120 
+    Guild masons_guild o  12
+
+
+
+
+;------------------------------------------
+Trigger 0300
+    WhenToTest UnitTrained
+
+    Condition TrainedUnitCategory cavalry
+
+    Guild horse_breeders_guild s  10 
+    Guild horse_breeders_guild o  1 
+
+;------------------------------------------
+Trigger 0301
+    WhenToTest UnitTrained
+
+    Condition TrainedUnitCategory infantry
+
+    Guild swordsmiths_guild s  10 
+    Guild swordsmiths_guild o  1 
+
+;------------------------------------------
+Trigger 0302
+    WhenToTest AgentCreated
+
+    Condition TrainedAgentType = merchant
+
+    Guild merchants_guild s  10 
+
+;------------------------------------------
+Trigger 0303
+    WhenToTest UnitTrained
+
+    Condition TrainedUnitCategory ship
+
+    Guild woodsmens_guild s  10 
+    Guild woodsmens_guild o  1 
+
+;------------------------------------------
+Trigger 0400
+    WhenToTest FactionTradeAgreementMade
+
+
+    Guild merchants_guild a  10 
+;------------------------------------------
+Trigger 0401
+    WhenToTest AcquisitionMission
+
+    Condition MissionSucceeded
+
+    Guild merchants_guild a  10 
+;------------------------------------------
+
+Trigger 0402
+    WhenToTest FactionTurnStart
+
+    Condition FactionIncome > 1000
+          and FactionIncome < 2001
+
+    Guild merchants_guild a  1 
+
+;------------------------------------------
+Trigger 0403
+    WhenToTest FactionTurnStart
+
+    Condition FactionIncome > 2000
+          and FactionIncome < 5001
+
+    Guild merchants_guild a  2 
+
+;------------------------------------------
+Trigger 0404
+    WhenToTest FactionTurnStart
+
+    Condition FactionIncome > 5000
+          and FactionIncome < 10001
+
+    Guild merchants_guild a  3 
+
+;------------------------------------------
+Trigger 0405
+    WhenToTest FactionTurnStart
+
+    Condition FactionIncome > 10000
+
+    Guild merchants_guild a  4 

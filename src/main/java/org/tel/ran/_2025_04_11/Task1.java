@@ -1,12 +1,8 @@
 package org.tel.ran._2025_04_11;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class Task1 {
     public static void main(String[] args) {
@@ -21,20 +17,23 @@ public class Task1 {
         // ------- Чтение -------
         try (FileReader fileReader = new FileReader("files/export_descr_guilds.txt")) {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            List<String> guilds = new ArrayList<>();
-            List<String> buildings = new ArrayList<>();
             String tmp = bufferedReader.readLine();
+            String currentGuild = null;
+            String currentBuilding = null;
             while (tmp != null) {
                 if (tmp.matches("^Guild.*")) {
-                    guilds.add(tmp.trim().split("\\s")[1]);
+                    currentGuild = tmp.trim().split("\\s")[1];
                 }
-                if (tmp.matches(".*building.*")) {
-                    buildings.add(tmp.trim().split("\\s")[1]);
+                if (tmp.matches(".*building.*") ) {
+                    currentBuilding = tmp.trim().split("\\s")[1];
+
+                }
+                if (currentGuild != null && currentBuilding != null){
+                    guildBuildingMap.put(currentGuild,currentBuilding);
+                    currentGuild = null;
+                    currentBuilding = null;
                 }
                 tmp = bufferedReader.readLine();
-            }
-            for (int i = 0; i < guilds.size() && i < buildings.size(); i++) {
-                guildBuildingMap.put(guilds.get(i), buildings.get(i));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

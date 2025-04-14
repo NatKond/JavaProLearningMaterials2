@@ -2,13 +2,33 @@ package org.tel.ran._2025_04_08.mainClass;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
+        String path = "/Users/nkond/IdeaProjects/JavaProLearningMaterials2/files";
+        File folder = new File(path);
+        System.out.println("Exists? " + folder.exists());
+        System.out.println("Is it a folder? " + folder.isDirectory());
+        System.out.println("Length = " + folder.length());
+        System.out.println(folder.getPath());
+        System.out.println(folder.getParent());
+        System.out.println(Arrays.toString(folder.list()));
+        File[] files = folder.listFiles();
+        assert files != null;
+        for (File file : files) {
+            System.out.println(file);
+        }
+        System.out.println();
+
         String path1 = "files/test1.txt";
         File file1 = new File(path1);
+        System.out.println("Exists? " + file1.exists());
+        System.out.println("Is it a folder? " + file1.isDirectory());
+        System.out.println("Length = " + file1.length());
+        System.out.println(file1.getPath());
+        System.out.println(file1.getParent());
+
         OutputStream outputStream = new FileOutputStream(file1);
         String output = "Hello Java!";
         outputStream.write(output.getBytes());
@@ -22,28 +42,5 @@ public class Main {
         byte[] b = inputStream.readAllBytes();
         String input = new String(b);
         System.out.println(input);
-
-        /*
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Пожалуйста, введите id:");
-        String id = scanner.nextLine();
-        System.out.println("Пожалуйста, введите login:");
-        String login = scanner.nextLine();
-        System.out.println("Пожалуйста, введите серию паспорта:");
-        int passportSeries = scanner.nextInt();
-        System.out.println("Пожалуйста, введите номер паспорта:");
-        int passportNumber = scanner.nextInt();
-        User user = new User(id, login, passportSeries, passportNumber);
-        OutputStream outputStream = new FileOutputStream("/Users/nkond/test/user.txt");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-        objectOutputStream.writeObject(user);
-        objectOutputStream.close();
-
-        InputStream inputStream = new FileInputStream("/Users/nkond/test/user.txt");
-        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        User user1 = (User) objectInputStream.readObject();
-        System.out.println(user1);
-         */
-        
     }
 }
