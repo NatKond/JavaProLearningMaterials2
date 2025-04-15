@@ -1,4 +1,4 @@
-package org.tel.ran._2025_04_11;
+package org.tel.ran._2025_04_11.mainClass;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
