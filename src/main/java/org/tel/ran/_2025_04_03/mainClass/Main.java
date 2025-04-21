@@ -18,6 +18,22 @@ public class Main {
         System.out.println(findMaxDuplicate(list));
         System.out.println(findMaxDuplicate2(list));
 
+        List<List<Integer>> lists = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            lists.add(new ArrayList<>());
+            for (int j = 0; j < 20; j++) {
+                lists.get(i).add(random.nextInt(1, 20));
+            }
+        }
+        lists.forEach(System.out::println);
+        System.out.println(findMaxInNestedLists(lists));
+        System.out.println(findMinInNestedLists(lists));
+        System.out.println(sumMaxAndMinInNestedLists(lists));
+        System.out.println(findMaxDuplicateInNestedLists(lists));
+        System.out.println(findAvgInNestedLists(lists));
+
+
         // ------- OPTIONAL -------
 
         Optional<String> optional = Optional.of("Hello");
@@ -53,15 +69,32 @@ public class Main {
         return list.stream().max(Integer::compare).orElseThrow();
     }
 
+    public static int findMaxInNestedLists(List<List<Integer>> lists) {
+        return lists.stream()
+                .flatMap(Collection::stream)
+                .max(Integer::compare).orElseThrow();
+    }
+
     public static int findMin(List<Integer> list) {
         return list.stream()
                 .min(Integer::compare)
                 .orElseThrow();
     }
 
+    public static int findMinInNestedLists(List<List<Integer>> lists) {
+        return lists.stream()
+                .flatMap(Collection::stream)
+                .min(Integer::compare)
+                .orElseThrow();
+    }
+
     //Задача 2: Верните сумму самого большого и самого маленького числа списка
     public static int sumMaxAndMin(List<Integer> list) {
-        return findMax(list) + list.stream().min(Integer::compare).orElseThrow();
+        return findMax(list) + findMin(list);
+    }
+
+    public static int sumMaxAndMinInNestedLists(List<List<Integer>> lists) {
+        return findMinInNestedLists(lists) + findMaxInNestedLists(lists);
     }
 
     //Задача 3: Верните самое большое продублированное число. Если дубликатов нет, то верните 0
@@ -72,11 +105,16 @@ public class Main {
                 .orElse(0);
     }
 
+    public static List<Integer> findMaxDuplicateInNestedLists(List<List<Integer>> lists) {
+        return lists.stream()
+                .map(Main::findMaxDuplicate2)
+                .toList();
+    }
+
     public static int findMaxDuplicate2(List<Integer> list) {
         return list.stream()
                 .collect(Collectors.groupingBy(i -> i, Collectors.counting()))
-                .entrySet()
-                .stream()
+                .entrySet().stream()
                 .filter(entry -> entry.getValue() > 1)
                 .map(Map.Entry::getKey)
                 .max(Integer::compare)
@@ -89,5 +127,15 @@ public class Main {
                 .filter(i -> !temp.add(i))
                 .max(Integer::compare)
                 .orElse(0);
+    }
+
+    public static List<Double> findAvgInNestedLists(List<List<Integer>> lists) {
+        return lists.stream()
+                .peek(System.out::print)
+                .map(list -> list.stream().mapToInt(i -> i).average().orElse(0.0))
+                .peek(System.out::println)
+                .sorted(Double::compare)
+                .peek(System.out::print)
+                .toList();
     }
 }

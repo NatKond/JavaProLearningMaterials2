@@ -60,7 +60,8 @@ public class Main {
                 .map(o -> o.products)
                 .flatMap(Collection::stream)
                 .map(p -> p.name)
-                .collect(Collectors.toSet());
+                .collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+
         System.out.println(productNames1);
         System.out.println(productNames2);
 
