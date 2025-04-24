@@ -72,9 +72,10 @@ public class TemperatureApp {
 
         return resultMap.entrySet().stream()
                 .filter(entry -> entry.getValue().stream()
-                        .mapToInt(Integer::intValue)
-                        .average()
-                        .orElseThrow(() -> new IllegalArgumentException("No data"))
+                        .collect(Collectors.averagingInt(i -> i))
+//                        .mapToInt(Integer::intValue)
+//                        .average()
+//                        .orElseThrow(() -> new IllegalArgumentException("No data"))
                         > 0)
                 .limit(3)
                 .map(entry -> Map.of(entry.getKey(), entry.getValue()))
