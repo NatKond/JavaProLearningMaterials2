@@ -21,11 +21,11 @@ public class Util extends AbstractUtil {
 
     @Override
     public <D extends Serializable> void serialize(D data) {
-        try (FileOutputStream fileOutputStream = new FileOutputStream(new File("files/object"))) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream("files/object")) {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(data);
         } catch (IOException e) {
-            LOGGER.error(e.getMessage(),this.getClass());
+            LOGGER.error(e.getMessage(), this.getClass());
         }
     }
 
@@ -33,11 +33,11 @@ public class Util extends AbstractUtil {
     public <D extends Serializable> D deserialize() {
 //        Class<?>[] arguments = this.getClass().getMethod("deserialize").getParameterTypes();
 //        Class<D> dClass = (Class<D>) arguments[0];
-        try (FileInputStream fileInputStream = new FileInputStream(new File("files/object"))) {
+        try (FileInputStream fileInputStream = new FileInputStream("files/object")) {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             return (D) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            LOGGER.error(e.getMessage(),this.getClass());
+            LOGGER.error(e.getMessage(), this.getClass());
         }
         return null;
     }

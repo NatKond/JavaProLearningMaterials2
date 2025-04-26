@@ -24,6 +24,7 @@ public class Main {
                 new Student("Tim", Speciality.ComputerScience, 5, 31),
                 new Student("Ann", Speciality.Psychology, 1, 22)
         );
+
         System.out.println("-".repeat(15) + " getNumberStudentMap " + "-".repeat(15));
         getNumberStudentMap(students).entrySet().forEach(System.out::println);
         System.out.println("-".repeat(15) + " getMapYearAverageAge " + "-".repeat(15));
@@ -57,24 +58,29 @@ public class Main {
     }
 
     public static Map<Speciality, List<Student>> getSpecialityStudentsMap(List<Student> students) {
+//        return students.stream()
+//                .collect(Collectors.toMap(
+//                        Student::speciality,
+//                        s -> new ArrayList<>(List.of(s)),
+//                        (list1, list2) -> {
+//                            list1.addAll(list2);
+//                            return list1;
+//                        }));
         return students.stream()
-                .collect(Collectors.toMap(
-                        Student::speciality,
-                        s -> new ArrayList<>(List.of(s)),
-                        (list1, list2) -> {
-                            list1.addAll(list2);
-                            return list1;
-                        }));
+                .collect(Collectors.groupingBy(Student::speciality));
     }
 
     public static Map<Speciality, Integer> getSpecialityCountStudentsMap(List<Student> students) {
-        //return students.stream().collect(Collectors.groupingBy(Student::speciality, Collectors.counting()));
+//        return students.stream()
+//                .collect(Collectors.toMap(
+//                        Student::speciality,
+//                        s -> 1,
+//                        Integer::sum));
 
         return students.stream()
-                .collect(Collectors.toMap(
-                        Student::speciality,
-                        s -> 1,
-                        Integer::sum));
+                .collect(Collectors.groupingBy(Student::speciality, Collectors.counting()))
+                .entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> Math.toIntExact(e.getValue())));
     }
 
     public static Map<Speciality, List<String>> getSpecialityNamesStudentsMap(List<Student> students) {

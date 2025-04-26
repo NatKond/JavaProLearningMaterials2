@@ -22,7 +22,7 @@ public class Task {
 
         User userOrigin = new User("id_001", "login_john", 1234, 567890);
         System.out.println("userOrigin = " + userOrigin);
-        //util.serialize(userOrigin);
+        util.serialize(userOrigin);
 
         User userCopy = util.deserialize();
         System.out.println("userCopy = " + userCopy);

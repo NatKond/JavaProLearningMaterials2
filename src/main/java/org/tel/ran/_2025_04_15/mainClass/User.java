@@ -12,9 +12,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class User implements Serializable {
     @Serial
-    private final static long serialVersionUID  = 2L;
+    private final static long serialVersionUID  = 1L;
     private String id;
-    private String loginName;
+    private String login;
     private int passportSeries;
     private int passportNumber;
 
@@ -23,7 +23,7 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
-                ", login='" + loginName + '\'' +
+                ", login='" + login + '\'' +
                 ", passportSeries=" + passportSeries +
                 ", passportNumber=" + passportNumber +
                 '}';
