@@ -1,6 +1,8 @@
 package org.tel.ran._2025_04_29.practice;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BookStorage {
@@ -15,9 +17,17 @@ public class BookStorage {
     }
 
     public void addBook(Book... books) {
+
         for (Book book : books) {
+            if (book == null || !book.getIsbn().matches("\\d{4}")){
+                throw new Inval
+            }
             bookMap.put(book.getIsbn(), book);
         }
+    }
+
+    public List<Book> getAllBooks(){
+        return new ArrayList<>(bookMap.values());
     }
 
     public Book getBook(String isbn) {

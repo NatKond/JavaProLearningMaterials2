@@ -1,5 +1,7 @@
 package org.tel.ran._2025_04_29.practice;
 
+import java.util.Objects;
+
 public class Book {
 
     private String title;
@@ -16,6 +18,18 @@ public class Book {
 
     public String getIsbn() {
         return isbn;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(title, book.title) && Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, isbn);
     }
 
     @Override
