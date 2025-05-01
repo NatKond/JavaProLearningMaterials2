@@ -20,7 +20,7 @@ public class BookStorage {
 
         for (Book book : books) {
             if (book == null || !book.getIsbn().matches("\\d{4}")){
-                throw new Inval
+                throw new IllegalArgumentException("Incorrect data.");
             }
             bookMap.put(book.getIsbn(), book);
         }

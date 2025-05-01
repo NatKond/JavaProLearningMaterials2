@@ -45,6 +45,7 @@ class MyRunnableImp implements Runnable {
 
     public synchronized void increment() {
         //System.out.print(color + Counter.count + " ");
+        //synchronized (Counter.LOCK) {
         synchronized (Counter.LOCK) {
             Counter.count++;
         }
