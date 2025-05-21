@@ -32,7 +32,7 @@ public class SynchronizedThread {
 class Counter {
 
     static int count = 0;
-    public static final Object LOCK = new Object();
+    // public static final Object LOCK = new Object();
 }
 
 class MyRunnableImp implements Runnable {
@@ -46,9 +46,8 @@ class MyRunnableImp implements Runnable {
     public synchronized void increment() {
         //System.out.print(color + Counter.count + " ");
         //synchronized (Counter.LOCK) {
-        synchronized (Counter.LOCK) {
             Counter.count++;
-        }
+        //}
     }
 
     @Override
