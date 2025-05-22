@@ -31,5 +31,7 @@ public class TransferApp {
         System.out.println("account1.size() = " + account1.size());
         System.out.println("account2.size() = " + account2.size());
         System.out.println("account3.size() = " + account3.size());
+
+
     }
 }

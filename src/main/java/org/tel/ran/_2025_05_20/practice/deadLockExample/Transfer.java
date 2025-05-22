@@ -16,9 +16,19 @@ public class Transfer implements Runnable {
     public void run() {
         for (int i = 0; i < 1000; i++) {
             int amountFrom;
-            synchronized (from) {
-                amountFrom = from.poll();
+
+            if (System.identityHashCode(from) < System.identityHashCode(to)) {
+                synchronized (from) {
+                    amountFrom = from.poll();
+                    synchronized (to) {
+                        to.add(amountFrom);
+                    }
+                }
+            }else {
                 synchronized (to) {
+                    synchronized (from) {
+                        amountFrom = from.poll();
+                    }
                     to.add(amountFrom);
                 }
             }
