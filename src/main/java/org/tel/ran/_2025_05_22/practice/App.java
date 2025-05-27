@@ -12,7 +12,7 @@ public class App {
         Thread consumer2 = new Thread(new Consumer(queue), "Consumer2");
 
         producer.start();
-        Thread.sleep(1000);
+        //Thread.sleep(5);
         consumer1.start();
         consumer2.start();
 

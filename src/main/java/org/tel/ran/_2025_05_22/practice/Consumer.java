@@ -33,11 +33,11 @@ public class Consumer implements Runnable {
                 System.out.println(GREEN + Thread.currentThread().getName() + " took " + queue.size() + " element from the queue.");
                 queue.poll();
             }
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+//            try {
+//                Thread.sleep(1);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
         }
     }
 }

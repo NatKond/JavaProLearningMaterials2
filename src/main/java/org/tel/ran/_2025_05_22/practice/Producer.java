@@ -17,16 +17,20 @@ public class Producer implements Runnable {
         while (true) {
             synchronized (queue) {
                 queue.add(1);
-                System.out.println(BLUE + "Producer put " + queue.size() + " element to the queue.");
+                /* while (queue.size() < 100) {
+                    queue.add(1);
+                    System.out.println(BLUE + "Producer put " + queue.size() + " element to the queue.");
+                }*/
             }
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            System.out.println(BLUE + "Producer put " + queue.size() + " element to the queue.");
+
+//            try {
+//                Thread.sleep(1);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
             synchronized (queue) {
                 if (queue.size() == 100) {
-                    System.out.println(BLUE + "Producer put 100 elements to the queue.");
                     queue.notify();
                     try {
                         queue.wait();
